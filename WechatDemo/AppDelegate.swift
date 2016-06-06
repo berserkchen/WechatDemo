@@ -9,38 +9,104 @@
 import UIKit
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
-
+class AppDelegate: UIResponder, UIApplicationDelegate, LoginViewControllerDelegate, RCIMUserInfoDataSource, UITableViewDelegate, UITableViewDataSource {
+    
     var window: UIWindow?
-
-
+    
+    let AppKey = "c9kqb3rdklf3j"
+    let Token = "Lle+YYQoX1BzUJhu0vWScfYBLQE9lXJZCT3PXXbe33HGNhEgBm3+dnrPRopHPAlIWAfhWfINmzMy5ET7TeWDqQ=="
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        // Override point for customization after application launch.
+        RCIM.sharedRCIM().initWithAppKey(AppKey)
+        if let rootVC = self.window?.rootViewController as? LoginViewController {
+            rootVC.delegate = self
+        }
         return true
     }
-
-    func applicationWillResignActive(application: UIApplication) {
-        // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
-        // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
+    
+    
+    
+    var userInfos: [String : RCUserInfo] = [:]
+    var userInfosArray: [RCUserInfo] = []
+    func initRCIM() {
+        
+        guard let token = LocalStore.getToken(), userId = LocalStore.getUserId() else { return }
+        RCIM.sharedRCIM().connectWithToken(token, success: { (remoteId: String!) in
+            if userId == remoteId {
+                // 连接成功
+//                guard let tabController = self.window?.rootViewController as? UITabBarController, naviController = tabController.selectedViewController as? UINavigationController, _ = naviController.topViewController as? WechatDemoListViewController else {
+//                    return
+//                }
+                RCIM.sharedRCIM().userInfoDataSource = self
+                
+            }
+            
+            }, error: { (error) in
+                NSLog("连接出错\(error)")
+                // 连接出错
+        }) {
+            // token 错误
+            NSLog("token 错误")
+        }
+        
+    }
+    
+    func parseUserInfo(json: JSON) -> RCUserInfo {
+        let userId = json["user_id"].string ?? ""
+        let userName = json["user_name"].string ?? ""
+        let userImageUri = json["user_image_uri"].string ?? ""
+        
+        let userInfo = RCUserInfo(userId: userId, name: userName, portrait: userImageUri)
+        return userInfo
     }
 
-    func applicationDidEnterBackground(application: UIApplication) {
-        // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
-        // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+    // MARK: RCIMUserInfoDataSource
+    func getUserInfoWithUserId(userId: String!, completion: ((RCUserInfo!) -> Void)!) {
+        NSLog("get user info")
+        if let userInfo = userInfos[userId] {
+            completion(userInfo)
+        } else {
+            let emptyUserInfo = RCUserInfo(userId: "", name: "神秘人", portrait: "")
+            completion(emptyUserInfo)
+        }
+        
     }
-
-    func applicationWillEnterForeground(application: UIApplication) {
-        // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
+    
+    // MARK: LoginViewControllerDelegate
+    func loginViewControllerDidLogin(controller: LoginViewController) {
+        NSLog("Did login")
+        let mainStoryBoard = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle())
+        
+        if let tabBarController = mainStoryBoard.instantiateViewControllerWithIdentifier("TabBarController") as? UITabBarController {
+            self.window?.rootViewController = tabBarController
+            
+        }
+        
     }
-
-    func applicationDidBecomeActive(application: UIApplication) {
-        // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+    func loginViewController(controller: LoginViewController, didFetchUserData userInfos: [String : RCUserInfo]) {
+        NSLog("Did fetch data")
+        self.userInfos = userInfos
+        self.userInfosArray = userInfos.map{ $0.1 }
+        self.initRCIM()
     }
-
-    func applicationWillTerminate(application: UIApplication) {
-        // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+    
+    // MARK: UITableViewDataSource
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return userInfos.count
     }
-
-
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier("ConversationCell") as! RCConversationCell
+        let row = indexPath.row
+        let conversation = RCConversation()
+        let targetUser = userInfosArray[row]
+        conversation.targetId = targetUser.userId
+        conversation.conversationTitle = targetUser.name
+        conversation.conversationType = RCConversationType.ConversationType_PRIVATE
+        let model = RCConversationModel(.CONVERSATION_MODEL_TYPE_NORMAL, conversation: conversation, extend: nil)
+        cell.setDataModel(model)
+        
+        return cell
+    }
+    
 }
 
