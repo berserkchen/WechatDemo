@@ -11,6 +11,12 @@ import UIKit
 struct LocalStore {
     static var userDefaults = NSUserDefaults.standardUserDefaults()
     
+    private static var AppKey = "c9kqb3rdklf3j"
+    
+    static func appKey() -> String {
+        return AppKey
+    }
+    
     static func getToken() -> String? {
         return stringForKey("tokenKey")
     }

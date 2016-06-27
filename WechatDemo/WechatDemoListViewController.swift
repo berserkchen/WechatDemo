@@ -36,6 +36,7 @@ class WechatDemoListViewController: RCConversationListViewController {
         super.viewWillAppear(animated)
 //        self.hidesBottomBarWhenPushed = true
         setTabBarVisible(true, animated: true, completion: nil)
+        
     }
     
     override func viewWillDisappear(animated: Bool) {
@@ -53,30 +54,6 @@ class WechatDemoListViewController: RCConversationListViewController {
     override func willDisplayConversationTableCell(cell: RCConversationBaseCell!, atIndexPath indexPath: NSIndexPath!) {
         NSLog("cell's frame:\(cell.frame)")
     }
-    
-//    func setTabBarVisible(visible: Bool, animated: Bool, completion:((Bool)->Void)?) {
-//        
-//        // bail if the current state matches the desired state
-//        if (tabBarIsVisible() == visible) {
-//            completion?(true)
-//            return
-//        }
-//        
-//        // get a frame calculation ready
-//        let height = tabBarController!.tabBar.frame.size.height
-//        let offsetY = (visible ? -height : height)
-//        
-//        // zero duration means no animation
-//        let duration = (animated ? 0.3 : 0.0)
-//        
-//        UIView.animateWithDuration(duration, animations: {
-//            let frame = self.tabBarController!.tabBar.frame
-//            self.tabBarController!.tabBar.frame = CGRectOffset(frame, 0, offsetY);
-//            }, completion:completion)
-//    }
-//    
-//    func tabBarIsVisible() -> Bool {
-//        return tabBarController!.tabBar.frame.origin.y < CGRectGetMaxY(view.frame)
-//    }
+
     
 }

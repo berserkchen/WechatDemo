@@ -13,10 +13,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, LoginViewControllerDelega
     
     var window: UIWindow?
     
-    let AppKey = "c9kqb3rdklf3j"
-    let Token = "Lle+YYQoX1BzUJhu0vWScfYBLQE9lXJZCT3PXXbe33HGNhEgBm3+dnrPRopHPAlIWAfhWfINmzMy5ET7TeWDqQ=="
+//    let AppKey = "c9kqb3rdklf3j"
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        RCIM.sharedRCIM().initWithAppKey(AppKey)
+        RCIM.sharedRCIM().initWithAppKey(LocalStore.appKey())
         if let rootVC = self.window?.rootViewController as? LoginViewController {
             rootVC.delegate = self
         }
@@ -27,6 +26,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, LoginViewControllerDelega
     
     var userInfos: [String : RCUserInfo] = [:]
     var userInfosArray: [RCUserInfo] = []
+    
     func initRCIM() {
         
         guard let token = LocalStore.getToken(), userId = LocalStore.getUserId() else { return }
@@ -97,14 +97,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate, LoginViewControllerDelega
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("ConversationCell") as! RCConversationCell
         let row = indexPath.row
-        let conversation = RCConversation()
         let targetUser = userInfosArray[row]
+        
+        let conversation = RCConversation()
         conversation.targetId = targetUser.userId
         conversation.conversationTitle = targetUser.name
+        
         conversation.conversationType = RCConversationType.ConversationType_PRIVATE
         let model = RCConversationModel(.CONVERSATION_MODEL_TYPE_NORMAL, conversation: conversation, extend: nil)
         cell.setDataModel(model)
-        
+        cell.messageCreatedTimeLabel.hidden = true
         return cell
     }
     

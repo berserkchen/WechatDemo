@@ -10,8 +10,8 @@
             <objects>
                 <viewController id="EnC-1A-Ztx" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="jt6-xE-Br3"/>
-                        <viewControllerLayoutGuide type="bottom" id="BtO-1J-tDI"/>
+                        <viewControllerLayoutGuide type="top" id="gHI-H0-V7O"/>
+                        <viewControllerLayoutGuide type="bottom" id="BI1-uj-Hsu"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="DNx-e9-KXN">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -42,15 +42,15 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uF0-nI-e3Q" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1291.5" y="-38.5"/>
+            <point key="canvasLocation" x="1291.5" y="-38.499999999999993"/>
         </scene>
         <!--Wechat Demo List View Controller-->
         <scene sceneID="e16-V3-sAf">
             <objects>
                 <viewController id="r1p-0P-03e" customClass="WechatDemoListViewController" customModule="WechatDemo" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="g9m-ga-sWo"/>
-                        <viewControllerLayoutGuide type="bottom" id="FaX-LA-0zM"/>
+                        <viewControllerLayoutGuide type="top" id="huX-L6-PIu"/>
+                        <viewControllerLayoutGuide type="bottom" id="67T-Mp-wOH"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="p8r-gl-E3c">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -62,7 +62,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wg6-p2-amY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1291.5" y="-812.5"/>
+            <point key="canvasLocation" x="1291.5" y="-812.49999999999989"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="Vk5-7T-rOZ">
@@ -82,97 +82,62 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Hzz-5G-iuc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="108.5" y="-38.5"/>
+            <point key="canvasLocation" x="108.5" y="-38.499999999999993"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="LoginViewController" customModule="WechatDemo" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
-                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                        <viewControllerLayoutGuide type="top" id="KTr-on-vSD"/>
+                        <viewControllerLayoutGuide type="bottom" id="z2d-fC-exL"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NKH-0R-UzD">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NKH-0R-UzD">
                                 <rect key="frame" x="132" y="200" width="150" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="IMz-n8-hl2"/>
-                                    <constraint firstAttribute="width" constant="150" id="Kae-x2-qbh"/>
-                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="用户名:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LbV-7o-ieN">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="用户名:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LbV-7o-ieN">
                                 <rect key="frame" x="63" y="205" width="50" height="20.5"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="15"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="z9y-RX-dwC">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="z9y-RX-dwC">
                                 <rect key="frame" x="132" y="120" width="150" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="150" id="Gg8-Oe-P90"/>
-                                    <constraint firstAttribute="height" constant="30" id="mJ0-g7-UfK"/>
-                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="邮箱:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dxq-gc-Kqq">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="邮箱:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dxq-gc-Kqq">
                                 <rect key="frame" x="74" y="124" width="39" height="21"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="39" id="wcw-2m-XUg"/>
-                                </constraints>
                                 <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="15"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="密码:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q03-0O-VzA">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="密码:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q03-0O-VzA">
                                 <rect key="frame" x="79" y="284" width="34.5" height="21"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="15"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qZ0-q2-9cT">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qZ0-q2-9cT">
                                 <rect key="frame" x="172" y="360" width="30" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="EnJ-zd-msx"/>
-                                    <constraint firstAttribute="width" constant="30" id="dVX-Hb-ejG"/>
-                                </constraints>
                                 <state key="normal" title="登录"/>
                                 <connections>
                                     <action selector="loginButtonDidTouch:" destination="BYZ-38-t0r" eventType="touchUpInside" id="uS0-V0-atB"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="EOS-3I-rAA">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="EOS-3I-rAA">
                                 <rect key="frame" x="132" y="280" width="150" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="GSq-Xt-UmZ"/>
-                                    <constraint firstAttribute="width" constant="150" id="cMe-u2-jBK"/>
-                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="Dxq-gc-Kqq" firstAttribute="centerY" secondItem="z9y-RX-dwC" secondAttribute="centerY" id="4q0-Ri-x6S"/>
-                            <constraint firstItem="z9y-RX-dwC" firstAttribute="leading" secondItem="Dxq-gc-Kqq" secondAttribute="trailing" constant="19" id="9Z7-Dn-oAu"/>
-                            <constraint firstItem="NKH-0R-UzD" firstAttribute="leading" secondItem="LbV-7o-ieN" secondAttribute="trailing" constant="19" id="MPv-on-jlv"/>
-                            <constraint firstItem="z9y-RX-dwC" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" constant="20" id="Mkc-I1-jAz"/>
-                            <constraint firstItem="EOS-3I-rAA" firstAttribute="leading" secondItem="q03-0O-VzA" secondAttribute="trailing" constant="19" id="Mm6-UT-FV0"/>
-                            <constraint firstItem="q03-0O-VzA" firstAttribute="centerY" secondItem="EOS-3I-rAA" secondAttribute="centerY" id="OJo-tw-YIN"/>
-                            <constraint firstItem="qZ0-q2-9cT" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="OPe-U8-o61"/>
-                            <constraint firstItem="EOS-3I-rAA" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" constant="20" id="RpS-SG-O2c"/>
-                            <constraint firstItem="EOS-3I-rAA" firstAttribute="top" secondItem="NKH-0R-UzD" secondAttribute="bottom" constant="50" id="VKx-IM-G7p"/>
-                            <constraint firstItem="LbV-7o-ieN" firstAttribute="centerY" secondItem="NKH-0R-UzD" secondAttribute="centerY" id="dqy-de-KZf"/>
-                            <constraint firstItem="NKH-0R-UzD" firstAttribute="top" secondItem="z9y-RX-dwC" secondAttribute="bottom" constant="50" id="eFo-HU-IDN"/>
-                            <constraint firstItem="NKH-0R-UzD" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" constant="20" id="lVy-yh-SZR"/>
-                            <constraint firstItem="z9y-RX-dwC" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="100" id="uO7-CJ-pX3"/>
-                            <constraint firstItem="qZ0-q2-9cT" firstAttribute="top" secondItem="EOS-3I-rAA" secondAttribute="bottom" constant="50" id="ue4-Rc-zeb"/>
-                        </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
@@ -183,12 +148,11 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-361.5" y="-38.5"/>
+            <point key="canvasLocation" x="-361.5" y="-38.499999999999993"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="bx8-xz-21h">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="BmO-LB-Uj0" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController id="svR-il-Gjc" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" systemItem="history" id="gVt-b7-7bF"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
@@ -200,8 +164,9 @@
                         <segue destination="r1p-0P-03e" kind="relationship" relationship="rootViewController" id="6dq-oY-0HD"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BmO-LB-Uj0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="704.5" y="-812.5"/>
+            <point key="canvasLocation" x="704.5" y="-812.49999999999989"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="V8s-1a-4zW">
@@ -221,7 +186,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Pcu-uY-lrl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="704.5" y="-38.5"/>
+            <point key="canvasLocation" x="704.5" y="-38.499999999999993"/>
         </scene>
     </scenes>
 </document>

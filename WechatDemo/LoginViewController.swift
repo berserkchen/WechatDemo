@@ -29,11 +29,7 @@ class LoginViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
+
     @IBAction func loginButtonDidTouch(sender: UIButton) {
         guard let userName = userNameTextField.text, userEmail = userEmailTextField.text, userPassword = userPasswordTextField.text where (!userName.isEmpty) && (!userEmail.isEmpty) && (!userPassword.isEmpty) else { return }
         WechatService.login(userName, userEmail: userEmail, userPassword: userPassword) { (json: JSON) in
@@ -56,20 +52,20 @@ class LoginViewController: UIViewController {
     func fetchUsers() {
         guard let _ = LocalStore.getToken(), userId = LocalStore.getUserId() else { return }
         var userInfos = [String : RCUserInfo]()
-        WechatService.getUserInfo(userId) { (json: JSON) in
+        
+        WechatService.getFriendsWithUserId(userId) { (json: JSON) in
             
             for index in 0..<json.count {
-                
                 let userInfo = self.parseUserInfo(json[index])
                 userInfos[userInfo.userId] = userInfo
             }
             self.delegate?.loginViewController(self, didFetchUserData: userInfos)
-            
         }
         
     }
     
     func parseUserInfo(json: JSON) -> RCUserInfo {
+        
         let userId = json["user_id"].string ?? ""
         let userName = json["user_name"].string ?? ""
         let userImageUri = json["user_image_uri"].string ?? ""
@@ -77,16 +73,5 @@ class LoginViewController: UIViewController {
         let userInfo = RCUserInfo(userId: userId, name: userName, portrait: userImageUri)
         return userInfo
     }
-    
-    
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-     // Get the new view controller using segue.destinationViewController.
-     // Pass the selected object to the new view controller.
-     }
-     */
     
 }
